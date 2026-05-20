@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMJ FORMATION • Cours</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+z-index:999;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+}
+
+.nav h1{
+font-size:22px;
+color:#004aad;
+}
+
+.nav h1 span{color:#d4af37;}
+
+.nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+}
+
+.nav a:hover{color:#d4af37;}
+
+/* HERO */
+.hero{
+padding:120px 6% 50px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.95)),
+url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600');
+background-size:cover;
+background-position:center;
+}
+
+.hero h2{
+font-size:38px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:10px;
+}
+
+.hero h2 span{color:#d4af37;}
+
+.hero p{
+color:#ccc;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+font-size:14px;
+}
+
+/* FILTER */
+.filter{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.filter button{
+padding:8px 12px;
+font-size:13px;
+border-radius:8px;
+background:#111;
+color:white;
+border:1px solid rgba(255,255,255,0.08);
+cursor:pointer;
+}
+
+.filter button:hover{background:#004aad;}
+
+/* VIDEO RESPONSIVE */
+.video{
+padding:40px 6%;
+text-align:center;
+}
+
+.video h2{
+margin-bottom:15px;
+color:#d4af37;
+font-size:20px;
+}
+
+.video iframe{
+width:100%;
+max-width:900px;
+aspect-ratio:16/9;
+border-radius:15px;
+border:none;
+}
+
+/* COURSES */
+.courses{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:15px;
+padding:40px 6% 70px;
+}
+
+/* CARD */
+.card{
+background:#111;
+border-radius:15px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.06);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#d4af37;
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.content{
+padding:14px;
+}
+
+.tag{
+font-size:11px;
+color:#d4af37;
+font-weight:600;
+display:inline-block;
+margin-bottom:5px;
+}
+
+.content h3{
+font-size:16px;
+margin-bottom:6px;
+}
+
+.content p{
+font-size:12px;
+color:#bbb;
+line-height:1.5;
+}
+
+/* PROGRESS */
+.progress{
+width:100%;
+height:5px;
+background:#222;
+border-radius:10px;
+margin-top:10px;
+overflow:hidden;
+}
+
+.progress div{
+height:100%;
+background:#004aad;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:9px 12px;
+background:#004aad;
+color:white;
+border-radius:8px;
+font-size:13px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#0066ff;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+background:#000;
+border-top:1px solid rgba(255,255,255,0.06);
+}
+
+footer p{
+color:#888;
+margin-top:10px;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width:768px){
+
+.nav{
+flex-direction:column;
+gap:10px;
+padding:12px;
+}
+
+.nav a{
+margin-left:10px;
+font-size:14px;
+}
+
+.hero h2{
+font-size:28px;
+}
+
+.hero{
+padding:110px 5% 40px;
+}
+
+.filter{
+gap:8px;
+}
+
+.video iframe{
+height:auto;
+}
+
+}
+/* PREMIUM BUTTON */
+.premium-box{
+text-align:center;
+padding:40px 6%;
+}
+
+.premium-btn{
+display:inline-block;
+padding:14px 25px;
+background:linear-gradient(45deg,#d4af37,#004aad);
+color:white;
+font-weight:700;
+border-radius:12px;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.premium-btn:hover{
+transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<h1>BMJ <span>FORMATION</span></h1>
+
+<div>
+<a href="#">Accueil</a>
+<a href="#">Cours</a>
+<a href="#">Support</a>
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+<h2>Accède à tes <span>cours professionnels</span></h2>
+
+<p>
+Apprends étape par étape avec vidéos, contenus et progression automatique pour maîtriser chaque domaine.
+</p>
+
+<div class="filter">
+<button>Tout</button>
+<button>Leadership</button>
+<button>Marketing</button>
+<button>Business</button>
+<button>Finance</button>
+</div>
+
+</section>
+
+<!-- VIDEO -->
+<section class="video">
+<iframe 
+src="https://www.youtube.com/embed/_QCMpgfjxmo"
+allowfullscreen>
+</iframe>
+
+</section>
+
+<!-- COURSES -->
+<section class="courses">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+<div class="content">
+<span class="tag">LEADERSHIP</span>
+<h3>Devenir un leader fort</h3>
+<p>Apprends les bases du leadership moderne et de la prise de décision.</p>
+
+<div class="progress"><div style="width:30%"></div></div>
+
+<a href="leadership.html" class="btn">Continuer</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+<div class="content">
+<span class="tag">MARKETING</span>
+<h3>Publicité digitale</h3>
+<p>Maîtrise Facebook Ads et TikTok Ads pour vendre en ligne.</p>
+
+<div class="progress"><div style="width:70%"></div></div>
+
+<a href="#" class="btn">Continuer</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+<div class="content">
+<span class="tag">BUSINESS</span>
+<h3>Lancer son entreprise</h3>
+<p>Crée un business rentable étape par étape.</p>
+
+<div class="progress"><div style="width:50%"></div></div>
+
+<a href="#" class="btn">Continuer</a>
+</div>
+</div>
+<!-- BOUTON PREMIUM -->
+<section class="premium-box">
+
+<a href="premium.html" class="premium-btn">
+🔥 Plus de domaines (Accès Premium)
+</a>
+
+</section>
+</section>
+<!-- INTRO BMJSERVICE -->
+<section style="padding:90px 6% 30px; text-align:center;">
+
+<h2 style="font-size:40px; font-weight:800; line-height:1.2;">
+<span style="color:#d4af37;">BMJSERVICE</span>
+</h2>
+
+<p style="max-width:850px; margin:18px auto; color:#cfcfcf; line-height:1.8; font-size:15px;">
+Une plateforme pensée pour les jeunes ambitieux qui refusent la médiocrité.
+Ici, tu n’apprends pas seulement des cours… tu développes des compétences réelles pour
+créer, entreprendre et générer des revenus dans le monde moderne.
+</p>
+
+<!-- HIGHLIGHTS -->
+<div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:25px;">
+
+<div style="background:#111; padding:15px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); min-width:220px;">
+🔥 <b style="color:#d4af37;">Apprentissage pratique</b><br>
+<span style="font-size:13px; color:#aaa;">Des compétences directement utilisables</span>
+</div>
+
+<div style="background:#111; padding:15px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); min-width:220px;">
+🚀 <b style="color:#d4af37;">Esprit entrepreneurial</b><br>
+<span style="font-size:13px; color:#aaa;">Crée ton propre avenir financier</span>
+</div>
+
+<div style="background:#111; padding:15px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.08); min-width:220px;">
+💡 <b style="color:#d4af37;">Mental de réussite</b><br>
+<span style="font-size:13px; color:#aaa;">Discipline, focus et performance</span>
+</div>
+
+</div>
+
+<!-- MOTIVATION -->
+<p style="margin-top:30px; font-size:14px; color:#aaa;">
+“Ce n’est pas ce que tu apprends qui change ta vie… c’est ce que tu fais avec.”
+</p>
+
+</section>
+<!-- FOOTER -->
+<footer>
+
+<h3 style="color:#d4af37;">BMJ FORMATION</h3>
+<p>© 2026 • Tous droits réservés</p>
+
+</footer>
+
+</body>
+</html>

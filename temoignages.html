@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BMJ • Avis & Certificat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* TOAST */
+#toast{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:#004aad;
+color:white;
+padding:14px 22px;
+border-radius:12px;
+font-weight:600;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+z-index:9999;
+}
+
+#toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(10px);
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:#004aad;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+padding:140px 8% 60px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.92)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:42px;
+font-weight:800;
+line-height:1.3;
+margin-bottom:15px;
+}
+
+.hero h1 span{
+color:#d4af37;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+color:#d0d0d0;
+line-height:1.9;
+font-size:15px;
+}
+
+/* CONTAINER */
+
+.container{
+padding:70px 8%;
+max-width:1000px;
+margin:auto;
+}
+
+/* BOX */
+
+.box{
+background:rgba(17,17,17,0.85);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* TEXT */
+
+.info{
+text-align:center;
+color:#d0d0d0;
+line-height:1.8;
+font-size:14px;
+margin-bottom:15px;
+}
+
+/* INPUT */
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:none;
+background:#0d0d0d;
+color:white;
+outline:none;
+}
+
+/* STARS */
+
+.stars{
+display:flex;
+justify-content:center;
+flex-direction:row-reverse;
+gap:8px;
+margin:12px 0;
+}
+
+.stars input{
+display:none;
+}
+
+.stars label{
+font-size:30px;
+color:#444;
+cursor:pointer;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label{
+color:#d4af37;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:14px;
+background:#004aad;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#0066ff;
+transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+background:#000;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:70px;
+}
+
+footer h3{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+footer p{
+color:#888;
+font-size:14px;
+}
+.link-comments{
+display:block;
+text-align:center;
+margin-top:18px;
+color:#d0d0d0;
+text-decoration:none;
+font-size:14px;
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+position:relative;
+overflow:hidden;
+animation:pulse 2s infinite;
+}
+
+.link-comments i{
+margin-right:8px;
+color:#d4af37;
+}
+
+/* HOVER GLOW */
+.link-comments:hover{
+color:#fff;
+background:rgba(0,74,173,0.2);
+box-shadow:0 0 20px rgba(0,74,173,0.6);
+transform:translateY(-3px);
+}
+
+/* PULSE ANIMATION */
+@keyframes pulse{
+0%{box-shadow:0 0 0 rgba(0,74,173,0);}
+50%{box-shadow:0 0 18px rgba(0,74,173,0.35);}
+100%{box-shadow:0 0 0 rgba(0,74,173,0);}
+}
+
+#count{
+margin-left:8px;
+color:#d4af37;
+font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- HEADER -->
+<header>
+<div class="navbar">
+
+<div class="logo">
+BMJ <span>SERVICE</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Bibliotheque</a>
+
+</div>
+
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+<h1>🎉 Félicitations <span>Leader</span></h1>
+
+<p>
+Vous avez terminé les 5 premières leçons de leadership.
+Nous espérons que vous êtes maintenant capable de gérer une organisation
+et de prendre des décisions importantes avec confiance.
+</p>
+
+</section>
+
+<!-- FORM -->
+<div class="container">
+
+<div class="box">
+
+<p class="info">
+Donnez votre avis sur BMJSERVICE.<br>
+Votre expérience nous aide à améliorer la formation.
+</p>
+
+<input type="text" id="name" placeholder="Ton nom">
+
+<!-- STARS -->
+<div class="stars">
+
+<input type="radio" name="star" id="s5" value="5"><label for="s5">★</label>
+<input type="radio" name="star" id="s4" value="4"><label for="s4">★</label>
+<input type="radio" name="star" id="s3" value="3"><label for="s3">★</label>
+<input type="radio" name="star" id="s2" value="2"><label for="s2">★</label>
+<input type="radio" name="star" id="s1" value="1"><label for="s1">★</label>
+
+</div>
+
+<textarea id="message" rows="3" placeholder="Ton avis sur BMJSERVICE"></textarea>
+
+<button onclick="saveComment()">Envoyer</button>
+<a href="temoignage.html" class="link-comments">
+<i class="fa-solid fa-circle-play"></i>
+Voir tous les commentaires
+<span id="count"></span>
+</a>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<h3>BMJ LEADERSHIP</h3>
+<p>© 2026 • Formation moderne pour les futurs leaders</p>
+
+</footer>
+
+<script>
+
+/* TOAST */
+function showToast(message, type="success"){
+let toast = document.getElementById("toast");
+toast.innerText = message;
+toast.style.background = (type==="error") ? "#d9534f" : "#004aad";
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2500);
+}
+
+/* RATING */
+function getRating(){
+let stars = document.getElementsByName("star");
+for(let s of stars){
+if(s.checked) return s.value;
+}
+return 0;
+}
+
+/* SAVE */
+function saveComment(){
+
+let name = document.getElementById("name").value;
+let message = document.getElementById("message").value;
+let rating = getRating();
+
+if(name=="" || message==""){
+showToast("Remplis tous les champs !","error");
+return;
+}
+
+if(rating==0){
+showToast("Choisis une note !");
+return;
+}
+
+let data = JSON.parse(localStorage.getItem("bmj_comments")) || [];
+
+data.unshift({
+name:name,
+message:message,
+date:new Date().toLocaleString(),
+rating:rating
+});
+
+localStorage.setItem("bmj_comments", JSON.stringify(data));
+
+showToast("Merci pour ton avis 🙏");
+
+document.getElementById("name").value="";
+document.getElementById("message").value="";
+
+let stars = document.getElementsByName("star");
+for(let s of stars){ s.checked=false; }
+
+}
+function updateCount(){
+let data = JSON.parse(localStorage.getItem("bmj_comments")) || [];
+document.getElementById("count").innerText = "+" + data.length + "";
+}
+
+updateCount();
+</script>
+
+</body>
+</html>

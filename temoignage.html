@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Témoignages • BMJSERVICE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins;
+color:white;
+
+/* BACKGROUND */
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:#004aad;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#d4af37;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:800px;
+margin:auto;
+padding:140px 20px 60px;
+}
+
+/* TITLE */
+
+h1{
+text-align:center;
+color:#d4af37;
+margin-bottom:10px;
+font-size:32px;
+}
+
+p{
+text-align:center;
+color:#ccc;
+margin-bottom:25px;
+}
+
+/* CARD */
+
+.card{
+background:rgba(17,17,17,0.85);
+backdrop-filter:blur(8px);
+padding:18px;
+border-radius:15px;
+margin-bottom:15px;
+border-left:4px solid #d4af37;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card h3{
+color:#d4af37;
+margin-bottom:5px;
+font-size:18px;
+}
+
+.card small{
+color:#aaa;
+display:block;
+margin-bottom:10px;
+}
+
+.card p{
+color:#ddd;
+line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+background:#000;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:50px;
+}
+
+footer h3{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+footer p{
+color:#888;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+BMJ <span>SERVICE</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Accueil</a>
+<a href="#">Leçons</a>
+<a href="#">Support</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- CONTENT -->
+<div class="container">
+
+<h1>💬 Témoignages BMJSERVICE</h1>
+<p>Ce que les utilisateurs disent de la plateforme</p>
+
+<div id="list"></div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<h3>BMJ LEADERSHIP</h3>
+<p>© 2026 • Tous droits réservés</p>
+
+</footer>
+
+<script>
+
+let data = JSON.parse(localStorage.getItem("bmj_comments")) || [];
+
+let list = document.getElementById("list");
+
+function showStars(rating){
+let stars = "";
+for(let i=1;i<=5;i++){
+stars += (i<=rating) ? "⭐" : "☆";
+}
+return stars;
+}
+
+if(data.length === 0){
+list.innerHTML = "<p style='text-align:center;color:#666'>Aucun témoignage pour le moment</p>";
+}else{
+
+data.forEach(item=>{
+list.innerHTML += `
+<div class="card">
+
+<h3>${item.name} ${showStars(item.rating || 0)}</h3>
+
+<small>${item.date}</small>
+
+<p>${item.message}</p>
+
+</div>
+`;
+});
+
+}
+
+</script>
+
+</body>
+</html>

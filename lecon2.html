@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leçon 2 • Confiance en soi | BMJ Leadership</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+overflow-x:hidden;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:#004aad;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#d4af37;
+}
+
+/* HERO */
+
+.hero{
+padding:140px 8% 70px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.92)),
+url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:55px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#d4af37;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+color:#d0d0d0;
+line-height:1.9;
+font-size:16px;
+}
+
+/* CONTAINER */
+
+.container{
+padding:70px 8%;
+max-width:1200px;
+margin:auto;
+}
+
+/* LESSON */
+
+.lesson-badge{
+display:inline-block;
+padding:8px 18px;
+background:#d4af37;
+color:black;
+font-size:13px;
+font-weight:700;
+border-radius:30px;
+margin-bottom:25px;
+}
+
+.lesson h2{
+font-size:42px;
+margin-bottom:25px;
+line-height:1.3;
+}
+
+.lesson h2 span{
+color:#d4af37;
+}
+
+.lesson p{
+color:#d0d0d0;
+line-height:2;
+font-size:15px;
+margin-bottom:24px;
+}
+
+/* IMAGE */
+
+.lesson-image{
+width:100%;
+max-width:850px;
+height:420px;
+margin:35px auto;
+border-radius:24px;
+overflow:hidden;
+}
+
+.lesson-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* HIGHLIGHT */
+
+.highlight{
+background:linear-gradient(180deg,#111,#0a0a0a);
+border-left:4px solid #d4af37;
+padding:28px;
+border-radius:20px;
+margin:35px 0;
+}
+
+.highlight h3{
+color:#d4af37;
+margin-bottom:15px;
+font-size:24px;
+}
+
+/* VIDEO */
+
+.video-box{
+width:100%;
+max-width:750px;
+margin:40px auto;
+background:#111;
+padding:10px;
+border-radius:20px;
+}
+
+.video-box iframe{
+width:100%;
+height:380px;
+border:none;
+border-radius:14px;
+}
+
+/* PC ONLY */
+
+.pc-only{
+display:block;
+background:linear-gradient(180deg,#111,#0a0a0a);
+border:1px solid rgba(255,255,255,0.08);
+border-left:4px solid #d4af37;
+padding:35px;
+border-radius:22px;
+margin-top:40px;
+}
+
+.pc-only h3{
+color:#d4af37;
+font-size:28px;
+margin-bottom:25px;
+}
+
+.pc-only p{
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.btn-area{
+text-align:center;
+margin-top:50px;
+}
+
+.next-btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:16px 35px;
+border-radius:15px;
+background:#004aad;
+color:white;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.next-btn:hover{
+background:#0066ff;
+transform:translateY(-4px);
+}
+
+/* FOOTER */
+
+footer{
+width:100%;
+padding:40px 20px;
+text-align:center;
+background:#000;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:70px;
+}
+
+footer h3{
+color:#d4af37;
+font-size:24px;
+margin-bottom:10px;
+}
+
+footer p{
+color:#888;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+padding:120px 5% 60px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.lesson h2{
+font-size:30px;
+}
+
+.lesson-image{
+height:240px;
+}
+
+.video-box iframe{
+height:220px;
+}
+
+.pc-only{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+BMJ <span>LEADERSHIP</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Accueil</a>
+<a href="#">Leçons</a>
+<a href="#">Support</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Développe une <span>confiance solide</span><br>
+comme les vrais leaders
+</h1>
+
+<p>
+La confiance en soi est l’une des qualités les plus importantes dans le leadership moderne.
+Un leader qui croit en lui inspire naturellement les autres,
+prend des décisions avec assurance et avance même dans les situations difficiles.
+</p>
+
+</section>
+
+<!-- CONTAINER -->
+
+<div class="container">
+
+<section class="lesson">
+
+<div class="lesson-badge">
+LEÇON 2 • CONFIANCE EN SOI
+</div>
+
+<h2>
+Construire une <span>mentalité forte</span>
+</h2>
+<p>
+La confiance en soi ne signifie pas être parfait.
+Elle signifie croire profondément en sa capacité
+à apprendre, évoluer et réussir malgré les difficultés.
+Un leader confiant comprend que chaque erreur
+peut devenir une leçon importante pour progresser.
+</p>
+
+<p>
+Beaucoup de personnes abandonnent leurs objectifs
+simplement parce qu’elles doutent constamment d’elles-mêmes.
+Les grands leaders, eux, comprennent que les échecs
+font partie du processus naturel de croissance et d’apprentissage.
+</p>
+
+<p>
+La confiance se construit progressivement avec l’expérience.
+Plus une personne développe ses compétences,
+plus elle devient capable d’affronter les défis
+avec calme et intelligence.
+</p>
+
+<div class="lesson-image">
+<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1600&auto=format&fit=crop">
+</div>
+<div style="
+padding:10px 0;
+margin:35px 0;
+background:
+linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.82)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+">
+
+<p style="
+color:#f1f1f1;
+line-height:2;
+font-size:15px;
+padding:35px 25px 20px;
+">
+Un leader confiant sait exprimer clairement ses idées,
+prendre la parole devant les autres
+et défendre ses objectifs sans peur excessive.
+Il ne cherche pas à impressionner tout le monde,
+mais à rester authentique et concentré sur sa vision.
+</p>
+
+<p style="
+color:#f1f1f1;
+line-height:2;
+font-size:15px;
+padding:0 25px 35px;
+">
+La confiance influence directement la manière
+dont les autres te perçoivent.
+Une personne qui parle avec assurance,
+qui garde une bonne posture
+et qui reste calme sous pression
+inspire naturellement plus de respect.
+</p>
+
+</div>
+<div class="highlight">
+
+<h3>🔥 Pourquoi la confiance est importante ?</h3>
+
+<p>
+Parce qu’elle influence directement tes décisions,
+ta communication et ton comportement.
+Les personnes confiantes inspirent plus facilement
+la motivation, le respect et la crédibilité.
+</p>
+
+</div>
+
+<p>
+La confiance aide aussi à prendre des initiatives.
+Les leaders confiants osent créer,
+entreprendre et sortir de leur zone de confort.
+Ils comprennent que les opportunités apparaissent souvent
+à ceux qui osent agir.
+</p>
+
+<p>
+Une personne qui développe sa confiance mentale
+devient également plus résistante face aux critiques.
+Elle apprend à écouter les conseils utiles
+sans laisser les opinions négatives détruire sa motivation.
+</p>
+
+<p>
+Les grands leaders du monde ont tous traversé
+des moments difficiles avant de réussir.
+Ce qui les différencie,
+c’est leur capacité à continuer malgré la peur,
+les critiques et les obstacles.
+</p>
+
+<p>
+La confiance en soi est donc une compétence
+qui se développe chaque jour grâce à la discipline,
+à l’apprentissage et aux actions répétées.
+</p>
+
+<!-- VIDEO -->
+
+<div class="video-box">
+
+<iframe
+src="https://www.youtube.com/embed/Z0YNHA5boCE"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<!-- PC CONTENT -->
+
+<div class="pc-only">
+
+<h3>🚀 Développement personnel avancé</h3>
+
+<p>
+Les leaders modernes travaillent constamment
+sur leur mentalité et leur discipline intérieure.
+Ils comprennent que la confiance durable
+vient de l’expérience et de la préparation.
+</p>
+
+<p>
+Quand une personne améliore ses compétences,
+elle devient naturellement plus calme,
+plus forte et plus capable de gérer les défis.
+</p>
+
+<p>
+Les critiques ne doivent pas détruire ta confiance.
+Elles doivent devenir une source d’apprentissage
+et d’amélioration personnelle.
+</p>
+
+<p>
+Plus tu affrontes tes peurs,
+plus ton cerveau développe de nouvelles capacités
+de courage et d’adaptation.
+</p>
+
+<p>
+La confiance permet aussi d’influencer positivement les autres
+et de créer une présence forte dans la société,
+dans les études ou dans le business.
+</p>
+
+</div>
+
+<!-- BUTTON -->
+
+<div class="btn-area">
+
+<a href="lecon3.html" class="next-btn">
+Passer à la leçon suivante
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</section>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>BMJ LEADERSHIP</h3>
+
+<p>
+© 2026 • Formation moderne pour les futurs leaders
+</p>
+
+</footer>
+
+</body>
+</html>

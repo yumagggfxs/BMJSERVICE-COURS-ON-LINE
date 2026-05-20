@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BMJ LEADERSHIP • Formation Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:#004aad;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#d4af37;
+}
+
+/* HERO */
+.hero{
+padding:110px 8% 60px;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.92)),
+url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600');
+background-size:cover;
+background-position:center;
+padding:90px 8% 60px;
+}
+}
+
+.premium-badge{
+display:inline-block;
+padding:10px 22px;
+border-radius:40px;
+background:rgba(212,175,55,0.12);
+border:1px solid rgba(212,175,55,0.4);
+color:#d4af37;
+font-size:13px;
+font-weight:700;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#d4af37;
+}
+
+.hero p{
+max-width:900px;
+margin:auto;
+line-height:2;
+color:#d0d0d0;
+font-size:16px;
+}
+
+/* STATS */
+
+.hero-stats{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:45px;
+}
+
+.stat-box{
+background:#111;
+padding:28px;
+border-radius:18px;
+min-width:230px;
+border:1px solid rgba(255,255,255,0.06);
+transition:0.3s;
+}
+
+.stat-box:hover{
+transform:translateY(-6px);
+border-color:#d4af37;
+}
+
+.stat-box h3{
+font-size:40px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.stat-box span{
+color:#bbb;
+font-size:14px;
+line-height:1.6;
+}
+
+/* CONTAINER */
+
+.container{
+padding:80px 8%;
+}
+
+/* LESSON */
+
+.lesson{
+margin-bottom:60px;
+animation:fade 0.6s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.lesson-badge{
+display:inline-block;
+padding:8px 18px;
+background:#d4af37;
+color:black;
+border-radius:30px;
+font-size:13px;
+font-weight:700;
+margin-bottom:22px;
+}
+
+.lesson h2{
+font-size:42px;
+margin-bottom:25px;
+line-height:1.3;
+}
+
+.lesson h2 span{
+color:#d4af37;
+}
+
+.lesson p{
+font-size:15px;
+line-height:2;
+color:#d0d0d0;
+margin-bottom:22px;
+}
+
+/* IMAGE */
+
+.lesson-image{
+width:100%;
+max-width:850px;
+height:320px;
+margin:25px auto;
+border-radius:20px;
+overflow:hidden;
+}
+
+.lesson-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+}
+
+.lesson-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+@media(max-width:768px){
+
+.lesson-image{
+height:220px;
+}
+
+}
+/* HIGHLIGHT */
+
+.highlight{
+margin:35px 0;
+padding:28px;
+background:#111;
+border-left:4px solid #d4af37;
+border-radius:14px;
+}
+
+.highlight h3{
+color:#d4af37;
+margin-bottom:12px;
+font-size:22px;
+}
+
+.highlight p{
+margin:0;
+}
+
+/* BUTTON */
+
+.btn-area{
+text-align:center;
+margin-top:50px;
+}
+
+.next-btn{
+padding:16px 34px;
+border:none;
+border-radius:14px;
+background:#004aad;
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.next-btn:hover{
+background:#0066ff;
+transform:translateY(-4px);
+}
+
+/* LESSON 2 */
+
+#lesson2{
+display:none;
+}
+
+/* FOOTER */
+
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer h3{
+color:#d4af37;
+margin-bottom:10px;
+}
+
+footer p{
+color:#888;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+padding:140px 6% 70px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:14px;
+line-height:1.9;
+}
+
+.stat-box{
+width:100%;
+}
+
+.lesson h2{
+font-size:30px;
+}
+
+.lesson-image{
+height:260px;
+}
+
+.container{
+padding:60px 6%;
+}
+
+}
+#lesson3{
+display:none;
+}
+
+.hidden{
+display:none !important;
+}
+iframe{
+height:220px !important;
+}
+.mobile-only{
+display:none;
+}
+
+@media(max-width:768px){
+
+.mobile-only{
+display:block;
+}
+
+}
+.mobile-only{
+display:none;
+}
+
+@media(max-width:768px){
+
+.mobile-only{
+display:block;
+}
+
+}
+html,body{
+overflow-x:hidden;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+BMJ <span>LEADERSHIP</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Accueil</a>
+<a href="#">Leçons</a>
+
+<a href="#">Support</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+
+
+<section class="hero" id="hero">
+
+<div id="heroIntro">
+
+<h1>
+Développe ton <span>Leadership</span><br>
+et influence positivement le monde
+</h1>
+
+<p>
+Cette formation a été créée pour les jeunes ambitieux qui veulent devenir plus disciplinés, plus influents et plus intelligents dans leurs décisions. Le leadership moderne ne consiste pas seulement à diriger des personnes. Il consiste à développer une vision claire, une mentalité forte et une capacité à inspirer les autres même dans les moments difficiles.
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTAINER -->
+
+<div class="container">
+
+<!-- LEÇON 1 -->
+
+<section class="lesson" id="lesson1">
+
+<div class="lesson-badge">
+LEÇON 1 • INTRODUCTION AU LEADERSHIP
+</div>
+
+<h2>
+Qu’est-ce que le <span>leadership moderne</span> ?
+</h2>
+
+<p>
+Le leadership est la capacité d’influencer, guider et inspirer des personnes vers un objectif commun.
+Un véritable leader ne cherche pas seulement à contrôler les autres.
+Il cherche à construire une vision forte, développer la confiance et créer un impact positif autour de lui.</br>
+Dans le monde moderne, les entreprises, les écoles, les projets et même les familles
+ont besoin de personnes capables de prendre des décisions intelligentes,
+de résoudre des problèmes et de garder leur calme sous pression.
+C’est exactement ce que développe le leadership moderne.
+</p>
+
+<div class="lesson-image">
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1600&auto=format&fit=crop">
+</div>
+
+<p>
+Beaucoup de personnes pensent qu’un leader est seulement quelqu’un qui parle devant une foule
+ou qui possède du pouvoir.
+En réalité, le leadership commence d’abord par la manière dont une personne contrôle sa propre vie,
+ses émotions, ses habitudes et sa discipline.
+</br>
+Un étudiant peut devenir un leader dans son école.
+Un jeune entrepreneur peut devenir un leader dans son quartier.
+Même une personne discrète peut développer une grande influence grâce à sa manière de penser,
+sa responsabilité et sa capacité à aider les autres à progresser.
+</p>
+
+<div class="highlight">
+
+<h3>🔥 Pourquoi apprendre le leadership ?</h3>
+
+<p>
+Parce que le leadership améliore la confiance en soi,
+la communication, la discipline et la capacité à prendre des décisions importantes.
+Les personnes qui développent leur leadership deviennent souvent plus organisées,
+plus respectées et plus capables d’atteindre leurs objectifs.
+</p>
+
+</div>
+<!-- VIDÉO LEADERSHIP RESPONSIVE -->
+<div style="margin-top:40px;">
+
+<h3 style="color:#d4af37;margin-bottom:18px;font-size:22px;">
+
+</h3>
+<p style="
+color:#cfcfcf;
+line-height:1.8;
+margin-bottom:20px;
+font-size:14px;
+">
+Cette vidéo va t’aider à mieux comprendre l’importance du leadership,
+de la discipline et de la mentalité d’un vrai leader moderne.
+</p>
+
+<div style="
+width:100%;
+max-width:700px;
+margin:25px auto;
+border-radius:18px;
+overflow:hidden;
+background:#111;
+padding:8px;
+">
+
+<iframe
+src="https://www.youtube.com/embed/_QxnV7rsQ6A"
+title="Leadership vidéo"
+allowfullscreen
+style="
+width:100%;
+height:380px;
+border:none;
+border-radius:12px;
+display:block;
+">
+  
+</iframe>
+
+</div>
+<p>
+Le leadership aide également à développer une mentalité forte.
+Un leader apprend à rester concentré même dans les périodes difficiles.
+Il comprend que les échecs ne sont pas la fin,
+mais une opportunité d’apprendre et de devenir plus intelligent.
+</br>
+Les grands leaders du monde ne sont pas devenus puissants du jour au lendemain.
+Ils ont commencé par développer leur discipline,
+leur manière de penser et leur capacité à inspirer les autres.
+C’est exactement ce que cette formation va t’aider à construire étape par étape.
+</p>
+<div class="pc-only" style="
+background:linear-gradient(180deg,#111,#0a0a0a);
+border:1px solid rgba(255,255,255,0.08);
+border-left:4px solid #d4af37;
+padding:35px;
+border-radius:22px;
+margin-top:35px;
+box-shadow:0 10px 40px rgba(0,0,0,0.35);
+">
+
+<h3 style="
+color:#d4af37;
+font-size:28px;
+margin-bottom:25px;
+font-weight:700;
+">
+🔥 Leadership avancé et discipline mentale
+</h3>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Un leader discipliné sait contrôler ses émotions,
+gérer son temps intelligemment et rester concentré
+sur ses objectifs même dans les moments difficiles.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Les habitudes quotidiennes construisent progressivement
+la personnalité et la puissance mentale d’un leader moderne.
+Chaque action répétée influence directement
+la qualité de ton futur.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Le leadership demande aussi une grande capacité
+à rester calme sous pression.
+Les vrais leaders ne paniquent pas rapidement.
+Ils analysent les situations avant de prendre des décisions importantes.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+La discipline aide également à développer la confiance en soi.
+Quand une personne respecte ses propres objectifs,
+elle devient naturellement plus forte mentalement
+et plus sûre de ses capacités.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Un leader moderne comprend que le succès ne vient pas du hasard.
+Il vient des efforts répétés, de la patience
+et de la capacité à rester constant chaque jour.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Les personnes qui réussissent dans le business,
+les études ou la vie professionnelle possèdent souvent
+une routine quotidienne très organisée.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+La maîtrise du temps est aussi une arme puissante.
+Un leader évite les distractions inutiles
+et donne la priorité aux tâches importantes.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Les grands leaders savent aussi apprendre de leurs erreurs.
+Au lieu d’abandonner après un échec,
+ils utilisent leurs difficultés pour devenir plus intelligents et plus expérimentés.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+margin-bottom:22px;
+font-size:15px;
+">
+Le leadership moderne demande une combinaison
+de discipline, de communication,
+de vision stratégique et d’intelligence émotionnelle.
+</p>
+
+<p style="
+color:#d0d0d0;
+line-height:2;
+font-size:15px;
+">
+Plus une personne développe ces qualités,
+plus elle devient capable d’influencer positivement les autres
+et construire un avenir solide.
+</p>
+
+</div>
+<div class="btn-area">
+
+<a href="lecon2.html" class="next-btn">
+Passer à la leçon suivante
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer style="
+width:100%;
+padding:40px 20px;
+text-align:center;
+background:#000;
+border-top:1px solid rgba(255,255,255,0.08);
+margin-top:60px;
+position:relative;
+z-index:2;
+">
+
+<h3 style="
+color:#d4af37;
+font-size:24px;
+margin-bottom:10px;
+font-weight:700;
+">
+BMJ SERVICE
+</h3>
+
+<p style="
+color:#888;
+font-size:14px;
+line-height:1.7;
+">
+© 2026 • Formation moderne pour les futurs leaders
+</p>
+
+</footer>
+
+<script>
+
+
+
+</script>
+</body>
+</html>

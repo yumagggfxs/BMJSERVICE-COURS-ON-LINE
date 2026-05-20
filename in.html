@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bibliothèque PDF Pro</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:linear-gradient(135deg,#e0f2fe,#f8fafc);min-height:100vh;color:#1e293b;transition:.3s}
+header{background:#1e40af;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
+.header-right{display:flex;gap:10px}
+.header-btn{border:none;padding:12px 14px;border-radius:12px;background:#fff;color:#1e40af;font-weight:bold;cursor:pointer}
+.container{max-width:1200px;margin:auto;padding:25px}
+.top-bar{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:25px}
+.top-bar input,.top-bar select{flex:1;padding:15px;border:none;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.add-btn{padding:15px 22px;border:none;border-radius:14px;background:#16a34a;color:#fff;font-weight:600;cursor:pointer}
+.stats{margin-bottom:20px;font-size:18px;font-weight:600}
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.book{background:#fff;padding:22px;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:.3s}
+.book:hover{transform:translateY(-6px)}
+.book h3{color:#2563eb;margin-bottom:8px}
+.badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:6px 12px;border-radius:20px;font-size:12px;margin:10px 0}
+.actions{display:flex;gap:12px;margin-top:18px}
+.actions button{flex:1;border:none;padding:14px;border-radius:12px;font-weight:600;color:#fff;cursor:pointer}
+.read{background:#2563eb}.download{background:#16a34a}
+#toast{position:fixed;top:25px;right:25px;background:#111827;color:#fff;padding:16px 22px;border-radius:14px;opacity:0;transition:.3s;z-index:9999}
+#toast.show{opacity:1}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);justify-content:center;align-items:center}
+.modal-box{background:#fff;padding:25px;border-radius:20px;width:350px}
+.modal-box input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.modal-box button{width:100%;padding:14px;border:none;border-radius:10px;background:#2563eb;color:#fff;font-weight:600}
+footer{text-align:center;padding:25px;margin-top:30px;background:#1e40af;color:#fff}/* DARK MODE */ .dark{background:#0f172a;color:#e2e8f0} .dark .book{background:#1e293b;color:#e2e8f0} .dark .modal-box{background:#1e293b;color:#e2e8f0} .dark .top-bar input,.dark .top-bar select{background:#334155;color:#fff} .dark header{background:#0b2a6f} </style>
+
+</head>
+<body><div id="toast"></div><header>
+<h1>📚 Bibliothèque en ligne</h1>
+<div class="header-right">
+<button class="header-btn" onclick="toggleDark()">🌙</button>
+</div>
+</header><div class="container">
+<div class="top-bar">
+<input id="search" placeholder="Rechercher un livre...">
+<select id="filter">
+<option value="">Toutes catégories</option>
+<option>Roman</option>
+<option>Science</option>
+<option>Histoire</option>
+</select>
+<button class="add-btn" onclick="openModal()">+ Ajouter PDF</button>
+</div><div class="stats">Total livres : <span id="count">0</span></div>
+<div class="books" id="bookList"></div>
+</div><div id="modal">
+<div class="modal-box">
+<h3>Ajouter un PDF ADMIN</h3>
+<input id="title" placeholder="Titre">
+<input id="author" placeholder="Auteur">
+<input id="category" placeholder="Catégorie">
+<input id="adminKey" type="password" placeholder="Clé admin">
+<input type="file" id="pdfFile" accept="application/pdf">
+<button onclick="saveBook()">Enregistrer</button>
+</div>
+</div><script>
+const ADMIN_PASSWORD="1234";
+let books=JSON.parse(localStorage.getItem('books'))||[];
+
+function toast(msg){const t=document.getElementById('toast');t.innerText=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
+
+function save(){localStorage.setItem('books',JSON.stringify(books));renderBooks()}
+
+function renderBooks(){
+const list=document.getElementById('bookList');
+const q=document.getElementById('search').value.toLowerCase();
+const cat=document.getElementById('filter').value;
+list.innerHTML='';
+
+const filtered=books.filter(b=>b.title.toLowerCase().includes(q)&&(cat===''||b.category===cat));
+document.getElementById('count').innerText=filtered.length;
+
+filtered.forEach((b,i)=>{
+list.innerHTML+=`
+<div class='book'>
+<h3>${b.title}</h3>
+<p><b>Auteur:</b> ${b.author}</p>
+<div class='badge'>${b.category}</div>
+<div class='actions'>
+<button class='read' onclick="openPDF(${i})">📖 Lire</button>
+<button class='download' onclick="downloadPDF(${i})">⬇ Télécharger</button>
+</div>
+</div>`;
+});
+}
+
+function openModal(){document.getElementById('modal').style.display='flex'}
+
+function saveBook(){
+const t=document.getElementById('title').value;
+const a=document.getElementById('author').value;
+const c=document.getElementById('category').value;
+const key=document.getElementById('adminKey').value;
+const file=document.getElementById('pdfFile').files[0];
+
+if(key!==ADMIN_PASSWORD){toast('Clé admin incorrecte');return;}
+if(!t||!a||!c||!file){toast('Remplir tous les champs');return;}
+
+const reader=new FileReader();
+reader.onload=function(){
+books.push({title:t,author:a,category:c,pdf:reader.result,name:file.name});
+save();
+document.getElementById('modal').style.display='none';
+toast('Livre ajouté');
+}
+reader.readAsDataURL(file);
+}
+
+function openPDF(i){const w=window.open();w.document.write(`<iframe src="${books[i].pdf}" width="100%" height="100%"></iframe>`)}
+function downloadPDF(i){const a=document.createElement('a');a.href=books[i].pdf;a.download=books[i].name;a.click()}
+
+function toggleDark(){document.body.classList.toggle('dark');toast('Mode changé')}
+
+document.getElementById('search').addEventListener('keyup',renderBooks);
+document.getElementById('filter').addEventListener('change',renderBooks);
+
+renderBooks();
+</script></body>
+</html>
